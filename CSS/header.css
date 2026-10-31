@@ -1,0 +1,194 @@
+/* ============================
+   RESET BÁSICO
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0b0a;
+}
+
+/* ============================
+   VARIABLES DE COLOR
+============================= */
+:root {
+  --color-fondo: #0e0c0a;
+  --color-borde: #a8823f;
+  --color-borde-suave: rgba(168, 130, 63, 0.35);
+  --color-texto: #f5f1e9;
+  --color-texto-secundario: #ece6d8;
+}
+
+/* ============================
+   HEADER
+============================= */
+.header {
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde-suave);
+  padding: 22px 40px;
+}
+
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ============================
+   LOGO
+============================= */
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-texto);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ============================
+   NAVEGACIÓN
+============================= */
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--color-texto-secundario);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--color-borde);
+}
+
+/* ============================
+   BOTÓN ORDENAR
+============================= */
+.btn-ordenar {
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 26px;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-ordenar:hover,
+.btn-ordenar:focus-visible {
+  background-color: var(--color-borde);
+  color: var(--color-fondo);
+}
+
+/* ============================
+   BOTÓN HAMBURGUESA (móvil)
+============================= */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav__toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-texto);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__toggle--active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle--active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle--active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================
+   RESPONSIVE
+============================= */
+@media (max-width: 900px) {
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde-suave);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav--open {
+    max-height: 400px;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 40px 20px;
+  }
+
+  .nav__list li {
+    width: 100%;
+    border-bottom: 1px solid var(--color-borde-suave);
+  }
+
+  .nav__link {
+    display: block;
+    padding: 14px 0;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .header {
+    position: relative;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 18px 20px;
+  }
+
+  .btn-ordenar {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}

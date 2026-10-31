@@ -1,0 +1,254 @@
+/* ==========================================================
+   VARIABLES GLOBALES
+   Paleta tomada del diseño de referencia: fondo casi negro,
+   acentos dorados/cobre, tarjetas en gris oscuro.
+========================================================== */
+:root {
+  --color-bg: #0d0d0d;
+  --color-bg-card: #1a1a1a;
+  --color-border: #3a2f1f;
+  --color-gold: #e8b93f;
+  --color-gold-soft: #c99a3b;
+  --color-text: #f5f0e6;
+  --color-text-muted: #b8b2a5;
+  --color-button-text: #1a1200;
+  --radius-card: 4px;
+  --font-heading: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 48px 56px;
+  background: var(--color-bg);
+}
+
+.hero__text h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.2;
+  color: var(--color-gold);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor reservado para la imagen decorativa (ignorada) */
+.hero__image {
+  flex: 0 0 320px;
+  height: 220px;
+  /* Sin imagen: se deja el espacio reservado en el layout */
+}
+
+/* ==========================================================
+   NAVEGACIÓN DE CATEGORÍAS
+========================================================== */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.categories__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 16px;
+  background: var(--color-bg);
+  border: none;
+  border-right: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.categories__item:last-child {
+  border-right: none;
+}
+
+.categories__item.is-active {
+  background: var(--color-gold-soft);
+  color: var(--color-button-text);
+}
+
+.categories__icon {
+  font-size: 20px;
+}
+
+/* ==========================================================
+   GRID DE PRODUCTOS
+   Estructura pensada para recibir N tarjetas generadas
+   dinámicamente desde la base de datos.
+========================================================== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+}
+
+/* ==========================================================
+   TARJETA DE PRODUCTO
+   Una instancia de esta tarjeta = un registro de la tabla
+   "productos" en la base de datos.
+========================================================== */
+.product-card {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  background: var(--color-bg-card);
+  min-height: 150px;
+}
+
+.product-card__image {
+  background: #111111;
+  /* Espacio reservado para {{ producto.imagen_url }} */
+}
+
+.product-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 18px;
+}
+
+.product-card__name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.product-card__description {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 12px;
+}
+
+.product-card__price {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.product-card__price-decimals {
+  font-size: 13px;
+  font-weight: 600;
+  vertical-align: super;
+}
+
+.product-card__button {
+  background: var(--color-gold);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: var(--radius-card);
+  padding: 10px 20px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+  white-space: nowrap;
+}
+
+.product-card__button:hover,
+.product-card__button:focus-visible {
+  filter: brightness(1.1);
+}
+
+.product-card__button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   TARJETA PROMOCIONAL (variante especial de product-card)
+========================================================== */
+.product-card--promo .product-card__promo-text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+@media (max-width: 900px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+  .categories__item {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .hero__image {
+    flex-basis: 180px;
+    width: 100%;
+  }
+  .product-card {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+/* Respeta la preferencia de reducción de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .product-card__button {
+    transition: none;
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zona Astro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/footer.css">
+</head>
+<body>
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col">
+        <p class="footer__title">ZONA ASTRO</p>
+        <p class="footer__text">Café + exploración.</p>
+        <p class="footer__text">Tu próximo viaje comienza aquí.</p>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__title">VISÍTANOS</p>
+        <p class="footer__text">Calle 9 poniente #2308 Colonia Barrio Santiago, Puebla, Puebla C.P. 72160, 72160 Heroica Puebla de Zaragoza, Pue.</p>
+        <p class="footer__text">10:00 - 17:00 hrs<br>Lunes a Sábados</p>
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="footer__link">Google Maps</a>
+      </div>
+
+      <div class="footer__col footer__col--social">
+        <p class="footer__title">SÍGUENOS</p>
+        <div class="footer__social">
+
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+            <img src="https://i.imgur.com/xK0bODs.png" width="30" height="30">
+          </a>
+
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3v10.8a3.1 3.1 0 1 1-2.6-3.06" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 3c.3 2.3 2 4 4.5 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 21v-7h2.4l.4-3H14V8.9c0-.9.3-1.5 1.6-1.5H17V4.8c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9V11H8.5v3H11v7h3z" fill="currentColor"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const nav = document.querySelector('.nav');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav--open');
+      toggle.classList.toggle('nav__toggle--active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+
+</body>
+</html>

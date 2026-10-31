@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras</title>
+
+  <!-- Tipografía Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/carrito.css">
+  <script src="Javascript/components.js"></script>
+  <!-- defer: se ejecuta cuando el HTML ya está cargado -->
+  <script src="Javascript/carrito.js" defer></script>
+</head>
+
+<header>
+  <div id="header"></div>
+</header>
+
+<body>
+
+  <main class="carrito">
+    <!--
+      FONDO: la imagen de la galaxia dorada se coloca desde carrito.css
+      (ver la propiedad background-image en la clase .carrito)
+    -->
+
+    <div class="carrito__contenedor">
+
+      <!-- ============ LISTA DE PRODUCTOS (la llena carrito.js) ============ -->
+      <section class="carrito__lista" id="carrito-lista" aria-label="Productos en el carrito" hidden></section>
+
+      <!-- ============ MENSAJE DE CARRITO VACÍO ============ -->
+      <section class="carrito__vacio" id="carrito-vacio" hidden>
+        <h2>Tu carrito está vacío</h2>
+        <p>Aún no has agregado productos.</p>
+        <a class="btn btn--principal" href="menu.html">Ir al menú</a>
+      </section>
+
+      <!-- ============ RESUMEN DEL PEDIDO ============ -->
+      <aside class="resumen" id="carrito-resumen" aria-label="Resumen del pedido" hidden>
+        <h2 class="resumen__titulo">Resumen del pedido</h2>
+
+        <div class="resumen__cuerpo">
+          <div class="resumen__total">
+            <span>Total (<span id="resumen-cantidad">0</span> productos)</span>
+            <span id="resumen-total">$0.00</span>
+          </div>
+
+          <p class="resumen__nota">Los precios ya incluyen IVA</p>
+
+          <button class="btn btn--principal" type="button">Pagar ahora</button>
+          <a class="btn btn--secundario" href="menu.html">Seguir comprando</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+</body>
+
+<footer>
+    <div id="footer"></div>
+</footer>
+
+</html>

@@ -1,0 +1,302 @@
+/* ==========================================================
+   CARRITO DE COMPRAS - Tema galáctico dorado
+   ========================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+  --oro: #e9c24a;
+  --oro-texto: #e8c26b;
+  --oro-oscuro: #6b4e1d;
+  --marron-fondo: #1a1309;
+  --marron-profundo: #100c06;
+  --borde: #d9c9a3;
+  --texto: #f2ead8;
+  --boton-cantidad: #4a3820;
+  --input-fondo: #3a3a3a;
+  --radio: 8px;
+}
+
+/* ---------- Reset básico ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--marron-profundo);
+  color: var(--texto);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* ---------- Sección principal ---------- */
+.carrito {
+  min-height: 80vh;
+  padding: 85px 20px 90px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  /* Fondo: degradado de respaldo (espacio oscuro) */
+  background-color: #05060d;
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(180, 130, 40, 0.18), transparent 55%),
+    radial-gradient(ellipse at 80% 40%, rgba(180, 130, 40, 0.18), transparent 55%),
+    linear-gradient(180deg, #05060d 0%, #0b0a10 70%, var(--marron-profundo) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(217, 201, 163, 0.4);
+
+  /* IMAGEN DE FONDO: reemplaza el degradado de arriba por tu imagen, por ejemplo:
+     background-image: url("img/fondo-galaxia.jpg"); */
+}
+
+.carrito__contenedor {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ---------- Lista de productos ---------- */
+.carrito__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto 90px 90px;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 20px 8px 8px;
+  background: rgba(22, 15, 6, 0.94);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+/* Contenedor de la imagen del producto */
+.item__imagen {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--marron-profundo);
+  border: 1px solid rgba(217, 201, 163, 0.45);
+  border-radius: 6px;
+}
+
+.item__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.item__nombre {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--oro-texto);
+}
+
+.item__detalle {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--texto);
+}
+
+/* ---------- Control de cantidad ---------- */
+.cantidad {
+  display: flex;
+  align-items: stretch;
+  height: 26px;
+  background: var(--boton-cantidad);
+  border: 1px solid rgba(217, 201, 163, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cantidad__btn {
+  width: 26px;
+  background: transparent;
+  border: none;
+  color: var(--oro-texto);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cantidad__btn:hover {
+  background: rgba(233, 194, 74, 0.2);
+}
+
+.cantidad__valor {
+  min-width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--marron-profundo);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ---------- Precios ---------- */
+.item__precio {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.item__total {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--oro-texto);
+  text-align: right;
+}
+
+/* ---------- Resumen del pedido ---------- */
+.resumen {
+  background: rgba(22, 15, 6, 0.94);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.resumen__titulo {
+  padding: 10px 14px;
+  background: var(--oro-oscuro);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--oro);
+}
+
+.resumen__cuerpo {
+  padding: 12px 14px 16px;
+}
+
+.resumen__fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  font-size: 0.8rem;
+}
+
+.resumen__fila dd {
+  font-weight: 500;
+}
+
+.resumen__total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(217, 201, 163, 0.3);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--oro);
+}
+
+.resumen__label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--oro-texto);
+}
+
+.resumen__input {
+  width: 100%;
+  height: 28px;
+  margin-bottom: 14px;
+  padding: 0 8px;
+  background: var(--input-fondo);
+  border: 1px solid rgba(217, 201, 163, 0.5);
+  border-radius: 4px;
+  color: var(--texto);
+  font-size: 0.8rem;
+}
+
+.resumen__input:focus {
+  outline: 2px solid var(--oro);
+  outline-offset: 1px;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--oro);
+  border: none;
+  border-radius: 4px;
+  color: #1a1309;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--principal {
+  margin-bottom: 8px;
+  padding: 11px 12px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .carrito__contenedor {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .carrito {
+    padding: 40px 12px 50px;
+  }
+
+  .item {
+    grid-template-columns: 80px 1fr;
+    gap: 10px 14px;
+    padding: 10px;
+  }
+
+  .cantidad {
+    grid-column: 1 / 2;
+    justify-self: start;
+  }
+
+  .item__precio {
+    grid-column: 2 / 3;
+    text-align: left;
+  }
+
+  .item__total {
+    grid-column: 1 / -1;
+    text-align: right;
+  }
+}
